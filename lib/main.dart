@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'header.dart';
-import 'footer.dart';
+import 'root.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,10 +11,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.pink[100],
       ),
-      home: Scaffold(
-        appBar: Header(),
-        body: Center(child: Text('ホーム')),
-        bottomNavigationBar: Footer(),
+      home: SafeArea(
+        child: Scaffold(
+          appBar: Header(),
+          body: Center(child: Text('ホーム')),
+          bottomNavigationBar: RootWidget(),
+        ),
       ),
     );
   }
